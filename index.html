@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="build/css/style.css" />
+    <title>Elogic Quiz</title>
+  </head>
+  <body>
+    <div class="container">
+      <p class="main-title">Elogic Quiz</p>
+      <div class="row">
+        <form id="form" action="">
+          <div class="col-4 mb-3">
+            <div class="subtitle">Select block size</div>
+            <select class="form-select" aria-label="Default select example">
+              <option value="1х1" selected>1х1</option>
+              <option value="1х2">1х2</option>
+              <option value="1х3">1х3</option>
+              <option value="2х1">2х1</option>
+              <option value="2х2">2х2</option>
+              <option value="2х3">2х3</option>
+              <option value="3х1">3х1</option>
+              <option value="3х2">3х2</option>
+              <option value="3х3">3х3</option>
+              <option value="4х1">4х1</option>
+            </select>
+            <div class="form-text">select box size from dropdown list</div>
+          </div>
+          <div class="col-4 mb-3">
+            <label for="priority" class="form-label subtitle">Priority</label>
+            <input
+              type="number"
+              min="0"
+              value="0"
+              max="99"
+              class="form-control"
+              id="priority"
+              aria-describedby="priority"
+              required
+            />
+            <div id="priority-descr" class="form-text">
+              enter priority from 0 to 99
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+      </div>
+      <div class="d-grid gap-2 col-3 mx-auto mb-3">
+        <button class="btn btn-primary" id="createGridButton" type="button">
+          Create
+        </button>
+      </div>
+
+      <ul class="list-group list-group-horizontal"></ul>
+
+      <div class="d-flex justify-content-center">
+        <div class="grid-2 mb-3"></div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.4/dist/muuri.min.js"></script>
+    <script src="build/js/script.js"></script>
+  </body>
+</html>
