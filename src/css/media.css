@@ -21,14 +21,25 @@ div {
   color: saddlebrown;
   text-decoration: underline;
 }
+.list-group {
+  flex-wrap: wrap;
+}
 .list-group-item {
   font-family: "Just Another Hand", cursive;
-  background: lightgray;
+  background: lightgray;;
+}
+.list-group-remove {
+  font-size: 14px;
+  line-height: 3.3;
+  text-decoration: none;
+  color: #333333;
 }
 .list-group-item:hover {
   filter: invert(85%);
 }
-
+.blocks-info {
+  min-height: 46px;
+}
 .grid,
 .grid-2 {
   height: auto;
