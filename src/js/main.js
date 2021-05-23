@@ -1,27 +1,8 @@
-
-var priority = $("#priority"),
-    form = $("#form"),
-    createGridButton = $("#createGridButton"),
-    grid2 = $('.grid-2'),
-    formSelect = $('.form-select'),
-    htmlContent = ''
-
-priority.on( "input", function() {
-  if (this.value.length > 2) {
-      this.value = this.value.slice(0,2); 
-  } else if (this.value < 10) {
-    this.value = this.value.slice(0,1);
-  } else if (this.value < 0) {
-    this.value = 0; 
-  }
-});
-priority.on( "focus", function(e) {
-  this.value = '';
-});
-
-
-
 (function (ko) {
+  var gridContainer = $('.grid'),
+      formSelect = $('.form-select'),
+      priority = $("#priority")
+
   var BlocksViewModel = function (blocksList) {
     this.blockList = blockList;
     this.newBlockSize = ko.observable('');
@@ -30,6 +11,27 @@ priority.on( "focus", function(e) {
     this.renderedGrid = ko.observable(false);
     this.isDisabled = ko.observable(false);
     var self = this;
+
+
+    priority.on( "input", function() {
+      if (this.value.length > 2) {
+        this.value = this.value.slice(0,2);
+      } else if (this.value < 10) {
+        this.value = this.value.slice(0,1);
+      } else if (this.value < 0) {
+        this.value = 0;
+      }
+    });
+    priority.on( "focus", function(e) {
+      if ($(this).val() == false) {
+        $(this).val("");
+      }
+    });
+    priority.on( "blur", function(e) {
+      if ($(this).val() == false) {
+        $(this).val("0");
+      }
+    });
 
     this.addBlock = function () {
       this.blockList.addBlock(this.newBlockSize(), this.newBlockPriority);
@@ -47,32 +49,32 @@ priority.on( "focus", function(e) {
       self.blocks(self.blockList.blocks)
     }
     this.resetGrid = function () {
+      this.blockList.resetGrid();
       self.blocks(false);
       this.renderedGrid (false);
       this.isDisabled (false);
-      grid2.empty();
-      new Muuri('.grid-2').destroy();
+      gridContainer.empty();
+      new Muuri('.grid').destroy();
     }
   }
 
   var BlockList = function () {
     this.blocks = [];
+
     this.addBlock = function () {
       var boxSize = formSelect.val();
       this.blocks.push({
         id: this.blocks.length,
         size: boxSize,
-        priority: priority.val(),
+        priority: priority.val() ? priority.val() : 0,
         width: boxSize.charAt(0),
-        height: boxSize.charAt(2)
+        height: boxSize.charAt(2),
+        square: Number(boxSize.charAt(0)) * Number(boxSize.charAt(2))
       })
-      console.log(this.blocks);
     }
 
     this.removeBlock = function (id) {
       var blockIndex = this.getIndexById(id, this.blocks);
-      console.log('blockIndex');
-      console.log(blockIndex);
       if (typeof blockIndex !== 'undefined') {
         this.blocks.splice(blockIndex, 1);
       }
@@ -94,7 +96,7 @@ priority.on( "focus", function(e) {
           grid,
           blockForGrid = [].concat(this.blocks);
 
-      blockForGrid.sort(function (a, b) { return b.width - a.width })
+      blockForGrid.sort(function (a, b) { return b.square - a.square || b.width - a.width;})
           .sort(function (a, b) { return b.priority - a.priority })
           .forEach(function( elem ) {
             switch (elem.size) {
@@ -131,10 +133,9 @@ priority.on( "focus", function(e) {
               default:
                 console.log('createGridButton, unknown size of element')
             }
-
           });
-      grid2.html(temp);
-      grid = new Muuri('.grid-2', {
+      gridContainer.html(temp);
+      grid = new Muuri('.grid', {
         layout: {
           fillGaps: true,
           alignBottom: true
@@ -143,7 +144,12 @@ priority.on( "focus", function(e) {
       grid.refreshItems().layout();
       temp = "";
     }
+    this.resetGrid = function () {
+      this.blocks = [];
+    }
   }
+
   var blockList = new BlockList();
+
   ko.applyBindings(new BlocksViewModel(blockList))
 })(ko)

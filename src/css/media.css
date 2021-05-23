@@ -1,19 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dekko&display=swap');
+
 body {
-  background: khaki;
+  background-size: cover;
+  background-image: url(http://i.piccy.info/i9/d591f49f789a77e5c1c243ca2893c35c/1621792087/99722/1430510/1750.jpg);
 }
 div {
   box-sizing: border-box;
 }
-.main-title {
-  color: darkslategray;
-  font-family: "Just Another Hand", cursive;
-  font-size: 48px;
+h1, h2 {
+  font-family: 'Dekko', cursive;
+  color: darkred;
   font-weight: 600;
+}
+.main-title {
+  font-size: 48px;
 }
 .form-text {
   font-family: "Just Another Hand", cursive;
-  font-size: 24px;
+  font-size: 28px;
 }
 .subtitle {
   font-family: "Just Another Hand", cursive;
@@ -26,7 +31,8 @@ div {
 }
 .list-group-item {
   font-family: "Just Another Hand", cursive;
-  background: lightgray;;
+  background: lightgray;
+  width: 50px;
 }
 .list-group-remove {
   font-size: 14px;
@@ -39,9 +45,11 @@ div {
 }
 .blocks-info {
   min-height: 46px;
+  font-size: 20px;
+  font-family: 'Dekko', cursive;
+  color: #2f4f4f;
 }
-.grid,
-.grid-2 {
+.grid {
   height: auto;
   width: 400px;
   position: relative;
@@ -116,7 +124,7 @@ div {
 }
 .two-one {
   width: 199px;
-  height: 97px;
+  height: 99px;
 }
 .two-three {
   width: 199px;
@@ -128,7 +136,7 @@ div {
 }
 .three-one {
   width: 299px;
-  height: 97px;
+  height: 99px;
 }
 .three-two {
   width: 299px;
