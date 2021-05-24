@@ -12,7 +12,6 @@
     this.isDisabled = ko.observable(false);
     var self = this;
 
-
     priority.on( "input", function() {
       if (this.value.length > 2) {
         this.value = this.value.slice(0,2);
@@ -43,6 +42,9 @@
       this.blockList.createGrid();
       this.renderedGrid (true);
       this.isDisabled (true);
+      setTimeout(function(){
+        window.scrollTo(0,document.body.scrollHeight)
+      }, 250)
     }
     this.removeBlock = function (blockObject, event) {
       self.blockList.removeBlock(blockObject.id);

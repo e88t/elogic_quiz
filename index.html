@@ -17,9 +17,9 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="main-title mt-3 mb-3">Elogic Quiz</h1>
+      <h1 class="main-title mt-3 mb-3" onClick="hello()">Elogic Quiz</h1>
 
-        <form id="form" class="mb-3" action="">
+        <form id="form" class="mb-3" action="" data-bind="submit: addBlock">
           <div class="row">
             <div class="col-6 col-md-4 mb-3">
               <div class="subtitle">Select block size</div>
@@ -58,24 +58,28 @@
               <div id="priority-descr" class="form-text">
                 enter priority from 0 to 99
               </div>
-              <button type="submit" class="btn btn-success" data-bind="click: addBlock, attr : {'disabled' : isDisabled()}">Submit</button>
+              <button type="submit" class="btn btn-success" data-bind="attr : {'disabled' : isDisabled()}">Submit</button>
             </div>
           </div>
         </form>
 
-      <p class="blocks-info mb-0" data-bind="visible: !blocks().length"> You haven't added any blocks yet </p>
+      <h2 class="blocks-info mb-0" data-bind="visible: !blocks().length">
+        <img src="http://i.piccy.info/i9/231d14200835066c6e42146b5b8b8964/1621881421/50686/1430510/sad.png" alt="sad smile">
+        You haven't added any blocks yet </h2>
       <div data-bind="visible: !renderedGrid()" class="mb-3">
         <ul class="list-group list-group-horizontal" data-bind="foreach: blocks">
           <li class='list-group-item me-1 mt-1' data-bind="text: size"></li>
           <a href="#" class="me-4 list-group-remove" data-bind="click: $parent.removeBlock">x</a>
         </ul>
       </div>
+      <h2 data-bind="visible: renderedGrid">
+        <img src="http://i.piccy.info/i9/db059cac1876f5148b838f191478b8e9/1621881545/44966/1430510/happy.png" alt="happy smile">
+        Your grid contain <span data-bind="text: blocks().length"></span> items</h2>
 
       <div class="d-grid gap-2 col-3 mx-auto mb-3 mt-5">
         <button class="btn btn-primary" id="createGridButton" type="button" data-bind="click: createGrid, attr : {'disabled' : !blocks()}"> Create </button>
       </div>
 
-      <h2 data-bind="visible: renderedGrid">Your grid contain <span data-bind="text: blocks().length"></span> items</h2>
       <div class="d-flex justify-content-center">
         <div class="grid mb-3"></div>
       </div>
