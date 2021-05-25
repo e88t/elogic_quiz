@@ -1,37 +1,17 @@
-# Сборка проекта на Gulp 4, Версия 1
+Elogic quiz
 
-## Описание проекта:
-С помощью этих файлов вы сможете быстро настроить сборку вашего проекта на Gulp.
+Select block size from select options
+Enter its priority (default 0).
+Click Add block.  Repeat with different sizes and priorities.
 
-## Структура файлов и папок:  
->./src  
->>	/css  
->>>		/main.css  
->>>		/media.css  
->>	/js  
->>>		/lib.js  
->>>		/main.js  
->./gulpfile.js  
->./package.json  
->./index.html  
+You can remove blocks from list (use button 'x'), before you click 'Create'
 
-## Инструкция:  
-1. Скачать все файлы в любую директорию   
-2. Ввести в терминале/командной строке команду: npm i (должен быть установлен node.js) 
-3. Выполнить команду: gulp dev (запуск таска dev, который очистит каталог build и запустит таск watch - отслеживает изменения в файлах html, css и js) 
-4. Писать свой код и наслаждаться автоматической сборкой проекта. 
+In grid blocks sorted by priority, then square of block and then width from bottom to top.
 
-## Ссылки:
-* __YouTube канал ITDoctor:__ https://www.youtube.com/c/ITDoctor
-* __Репозиторий GitHub:__ https://github.com/morphIsmail/gulp_settings
-* __Группа в ВК:__ https://vk.com/itdoctorstudio
-* __Instagram:__ https://instagram.com/ismail_asanovich/
-* __Telegram:__ https://t.me/itdoctorr
-* __Мой Twitter:__ https://twitter.com/ITDoctor_morph
+After Create you can click reset button and buid grid one more time.
 
-## Для поддержки развития проекта:
-__Сбербанк VISA:__ 4276 5200 1409 4318  
-__Yandex:__ 410011260821995 - https://yasobe.ru/na/itdoctor  
-__QIWI:__ 4890 4943 0383 5581  
-__WMR:__ R444308690108  
-__WMZ:__ Z608507028676  
+Available also on mobile devices and entering from keyboard.
+
+Recommended Chrome browser.
+
+Github (branch gh-pages)
