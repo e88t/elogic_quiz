@@ -39,13 +39,13 @@
               </select>
               <div class="form-text">select box size from dropdown list</div>
             </div>
-            <div class="col-6 col-md-3">
+            <div class="col-6 col-md-3" data-bind="visible: renderedGrid()">
               <div class="subtitle">click for reset grid</div>
-              <button type="submit" class="btn btn-danger" data-bind="click: resetGrid, attr : {'disabled' : !renderedGrid()}">Reset</button>
+              <button type="submit" class="btn btn-danger" data-bind="click: resetGrid">Reset</button>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-4 col-12 mb-3">
+            <div class="col-md-4 col-6 mb-3">
               <label for="priority" class="form-label subtitle">Priority</label>
               <input
                 type="number"

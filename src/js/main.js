@@ -1,12 +1,11 @@
 (function (ko) {
   var gridContainer = $('.grid'),
+      form = $("#form"),
       formSelect = $('.form-select'),
       priority = $("#priority")
 
   var BlocksViewModel = function (blocksList) {
     this.blockList = blockList;
-    this.newBlockSize = ko.observable('');
-    this.newBlockPriority = ko.observable('');
     this.blocks = ko.observable(false);
     this.renderedGrid = ko.observable(false);
     this.isDisabled = ko.observable(false);
@@ -31,17 +30,24 @@
         $(this).val("0");
       }
     });
+    priority.on( "keypress", function(e) {
+      var keyCode = (e.which ? e.which : e.keyCode);
+      if (keyCode !== 13) {
+        return
+      } else {
+        e.preventDefault();
+        form.submit();
+      }
+    })
 
     this.addBlock = function () {
-      this.blockList.addBlock(this.newBlockSize(), this.newBlockPriority);
-      this.newBlockSize('');
-      this.newBlockPriority('');
-      this.blocks(this.blockList.blocks);
+      self.blockList.addBlock();
+      self.blocks(this.blockList.blocks);
     }
     this.createGrid = function () {
-      this.blockList.createGrid();
-      this.renderedGrid (true);
-      this.isDisabled (true);
+      self.blockList.createGrid();
+      self.renderedGrid (true);
+      self.isDisabled (true);
       setTimeout(function(){
         window.scrollTo(0,document.body.scrollHeight)
       }, 250)
@@ -51,10 +57,10 @@
       self.blocks(self.blockList.blocks)
     }
     this.resetGrid = function () {
-      this.blockList.resetGrid();
+      self.blockList.resetGrid();
       self.blocks(false);
-      this.renderedGrid (false);
-      this.isDisabled (false);
+      self.renderedGrid (false);
+      self.isDisabled (false);
       gridContainer.empty();
       new Muuri('.grid').destroy();
     }
@@ -73,6 +79,7 @@
         height: boxSize.charAt(2),
         square: Number(boxSize.charAt(0)) * Number(boxSize.charAt(2))
       })
+      priority.val("0");
     }
 
     this.removeBlock = function (id) {
