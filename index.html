@@ -14,12 +14,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.4/dist/muuri.min.js"></script>
     <script src = "https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.5.0.js"></script>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="build/css/style.css" />
     <title>Elogic Quiz</title>
   </head>
   <body>
     <div class="container">
-      <h1 class="main-title mt-3 mb-3" onClick="hello()">Elogic Quiz</h1>
+      <h1 class="main-title mt-3 mb-3 animate__animated animate__rubberBand animate__delay-1s">Elogic Quiz</h1>
 
         <form id="form" class="mb-3" action="" data-bind="submit: addBlock">
           <div class="row">
@@ -40,7 +44,7 @@
               <div class="form-text">select box size from dropdown list</div>
             </div>
             <div class="col-6 col-md-3" data-bind="visible: renderedGrid()">
-              <div class="subtitle">click for reset grid</div>
+              <div class="subtitle animate__infinite infinite animate__pulse animate__animated ">click button for reset grid</div>
               <button type="submit" class="btn btn-danger" data-bind="click: resetGrid">Reset</button>
             </div>
           </div>
@@ -65,7 +69,7 @@
           </div>
         </form>
 
-      <h2 class="blocks-info mb-0" data-bind="visible: !blocks().length">
+      <h2 class="blocks-info mb-0 animate__animated animate__fadeInBottomRight" data-bind="visible: !blocks().length">
         <img src="http://i.piccy.info/i9/231d14200835066c6e42146b5b8b8964/1621881421/50686/1430510/sad.png" alt="sad smile">
         You haven't added any blocks yet </h2>
       <div data-bind="visible: !renderedGrid()" class="mb-3">
@@ -74,7 +78,7 @@
           <a href="#" class="me-4 list-group-remove" data-bind="click: $parent.removeBlock">x</a>
         </ul>
       </div>
-      <h2 data-bind="visible: renderedGrid">
+      <h2 data-bind="visible: renderedGrid" class="animate__animated animate__fadeInBottomRight">
         <img src="http://i.piccy.info/i9/db059cac1876f5148b838f191478b8e9/1621881545/44966/1430510/happy.png" alt="happy smile">
         Your grid contain <span data-bind="text: blocks().length"></span> items</h2>
 

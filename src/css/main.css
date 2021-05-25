@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Dekko&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 * {
     -webkit-transition: 0.3s all ease-in-out;
     -moz-transition: 0.3s all ease-in-out;
@@ -14,8 +14,9 @@ div {
     box-sizing: border-box;
 }
 h1, h2 {
-    font-family: 'Dekko', cursive;
-    font-weight: 600;
+    font-family: 'Patrick Hand', cursive;
+    font-weight: 500;
+    text-shadow: 1px 1px 1px black;
 }
 .main-title {
     font-size: 48px;
@@ -51,6 +52,7 @@ h2 {
     filter: invert(85%);
 }
 .blocks-info {
+    text-shadow: 1px 1px 1px black;
 }
 .blocks-info img, h2 img {
     width: 46px;

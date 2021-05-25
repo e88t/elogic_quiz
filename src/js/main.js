@@ -50,7 +50,7 @@
       self.isDisabled (true);
       setTimeout(function(){
         window.scrollTo(0,document.body.scrollHeight)
-      }, 250)
+      }, 1500)
     }
     this.removeBlock = function (blockObject, event) {
       self.blockList.removeBlock(blockObject.id);
